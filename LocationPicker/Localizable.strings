@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  LocationPicker
+
+  Created by Idan Moshe on 30/01/2021.
+  
+*/
+
+"choose_location" = "Choose Location";
+"nearby_places" = "Nearby Places";

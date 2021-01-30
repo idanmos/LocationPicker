@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		8AAC9C7325C4E27100FF5D7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9C7225C4E27100FF5D7E /* AppDelegate.swift */; };
 		8AAC9C7525C4E27100FF5D7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9C7425C4E27100FF5D7E /* SceneDelegate.swift */; };
-		8AAC9C7725C4E27100FF5D7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9C7625C4E27100FF5D7E /* ViewController.swift */; };
+		8AAC9C7725C4E27100FF5D7E /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9C7625C4E27100FF5D7E /* LocationPickerViewController.swift */; };
 		8AAC9C7A25C4E27100FF5D7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AAC9C7825C4E27100FF5D7E /* Main.storyboard */; };
 		8AAC9C7C25C4E27300FF5D7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AAC9C7B25C4E27300FF5D7E /* Assets.xcassets */; };
 		8AAC9C7F25C4E27300FF5D7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AAC9C7D25C4E27300FF5D7E /* LaunchScreen.storyboard */; };
+		8AAC9C8A25C4E29400FF5D7E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAC9C8925C4E29400FF5D7E /* MapKit.framework */; };
+		8AAC9CA025C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */; };
+		8AAC9CA425C5919300FF5D7E /* LocationPicker+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */; };
+		8AAC9CA725C5EAB000FF5D7E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8AAC9C6F25C4E27100FF5D7E /* LocationPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AAC9C7225C4E27100FF5D7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AAC9C7425C4E27100FF5D7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8AAC9C7625C4E27100FF5D7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8AAC9C7625C4E27100FF5D7E /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		8AAC9C7925C4E27100FF5D7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AAC9C7B25C4E27300FF5D7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AAC9C7E25C4E27300FF5D7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AAC9C8025C4E27300FF5D7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AAC9C8925C4E29400FF5D7E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerSearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationPicker+Extensions.swift"; sourceTree = "<group>"; };
+		8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AAC9C8A25C4E29400FF5D7E /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,7 @@
 			children = (
 				8AAC9C7125C4E27100FF5D7E /* LocationPicker */,
 				8AAC9C7025C4E27100FF5D7E /* Products */,
+				8AAC9C8825C4E29400FF5D7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +68,24 @@
 			children = (
 				8AAC9C7225C4E27100FF5D7E /* AppDelegate.swift */,
 				8AAC9C7425C4E27100FF5D7E /* SceneDelegate.swift */,
-				8AAC9C7625C4E27100FF5D7E /* ViewController.swift */,
+				8AAC9C7625C4E27100FF5D7E /* LocationPickerViewController.swift */,
+				8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */,
+				8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */,
 				8AAC9C7825C4E27100FF5D7E /* Main.storyboard */,
 				8AAC9C7B25C4E27300FF5D7E /* Assets.xcassets */,
 				8AAC9C7D25C4E27300FF5D7E /* LaunchScreen.storyboard */,
+				8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */,
 				8AAC9C8025C4E27300FF5D7E /* Info.plist */,
 			);
 			path = LocationPicker;
+			sourceTree = "<group>";
+		};
+		8AAC9C8825C4E29400FF5D7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9C8925C4E29400FF5D7E /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AAC9C7F25C4E27300FF5D7E /* LaunchScreen.storyboard in Resources */,
+				8AAC9CA725C5EAB000FF5D7E /* Localizable.strings in Resources */,
 				8AAC9C7C25C4E27300FF5D7E /* Assets.xcassets in Resources */,
 				8AAC9C7A25C4E27100FF5D7E /* Main.storyboard in Resources */,
 			);
@@ -137,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AAC9C7725C4E27100FF5D7E /* ViewController.swift in Sources */,
+				8AAC9C7725C4E27100FF5D7E /* LocationPickerViewController.swift in Sources */,
+				8AAC9CA025C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift in Sources */,
 				8AAC9C7325C4E27100FF5D7E /* AppDelegate.swift in Sources */,
+				8AAC9CA425C5919300FF5D7E /* LocationPicker+Extensions.swift in Sources */,
 				8AAC9C7525C4E27100FF5D7E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3N3LX399B;
 				INFOPLIST_FILE = LocationPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3N3LX399B;
 				INFOPLIST_FILE = LocationPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
