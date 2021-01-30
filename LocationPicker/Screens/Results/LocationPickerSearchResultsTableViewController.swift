@@ -39,7 +39,7 @@ class LocationPickerSearchResultsTableViewController: UITableViewController {
         self.tableView.register(LocationPickerTableViewCell.self, forCellReuseIdentifier: "LocationPickerTableViewCell")
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -19,6 +19,7 @@
 		8AAC9CA725C5EAB000FF5D7E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */; };
 		8AAC9CAA25C5EB8B00FF5D7E /* LocationMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9CA925C5EB8B00FF5D7E /* LocationMapItem.swift */; };
 		8AAC9CAD25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9CAC25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift */; };
+		8AAC9CB325C5EE0C00FF5D7E /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9CB225C5EE0C00FF5D7E /* Application.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8AAC9CA925C5EB8B00FF5D7E /* LocationMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapItem.swift; sourceTree = "<group>"; };
 		8AAC9CAC25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerTableViewCell.swift; sourceTree = "<group>"; };
+		8AAC9CB225C5EE0C00FF5D7E /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,17 +72,13 @@
 		8AAC9C7125C4E27100FF5D7E /* LocationPicker */ = {
 			isa = PBXGroup;
 			children = (
-				8AAC9C7225C4E27100FF5D7E /* AppDelegate.swift */,
-				8AAC9C7425C4E27100FF5D7E /* SceneDelegate.swift */,
-				8AAC9CA925C5EB8B00FF5D7E /* LocationMapItem.swift */,
-				8AAC9CAC25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift */,
-				8AAC9C7625C4E27100FF5D7E /* LocationPickerViewController.swift */,
-				8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */,
-				8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */,
+				8AAC9CB025C5EDF000FF5D7E /* Application */,
+				8AAC9CB725C5F1C000FF5D7E /* Models */,
+				8AAC9CB925C5F1CC00FF5D7E /* Screens */,
+				8AAC9CB525C5F1B900FF5D7E /* Extensions */,
 				8AAC9C7825C4E27100FF5D7E /* Main.storyboard */,
-				8AAC9C7B25C4E27300FF5D7E /* Assets.xcassets */,
+				8AAC9CC225C5F1F900FF5D7E /* Resources */,
 				8AAC9C7D25C4E27300FF5D7E /* LaunchScreen.storyboard */,
-				8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */,
 				8AAC9C8025C4E27300FF5D7E /* Info.plist */,
 			);
 			path = LocationPicker;
@@ -92,6 +90,75 @@
 				8AAC9C8925C4E29400FF5D7E /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8AAC9CB025C5EDF000FF5D7E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9C7225C4E27100FF5D7E /* AppDelegate.swift */,
+				8AAC9C7425C4E27100FF5D7E /* SceneDelegate.swift */,
+				8AAC9CB225C5EE0C00FF5D7E /* Application.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8AAC9CB525C5F1B900FF5D7E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8AAC9CB725C5F1C000FF5D7E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9CA925C5EB8B00FF5D7E /* LocationMapItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8AAC9CB925C5F1CC00FF5D7E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9CBD25C5F1DC00FF5D7E /* Common */,
+				8AAC9CC025C5F1EC00FF5D7E /* List */,
+				8AAC9CBB25C5F1D500FF5D7E /* Results */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8AAC9CBB25C5F1D500FF5D7E /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		8AAC9CBD25C5F1DC00FF5D7E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9CAC25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8AAC9CC025C5F1EC00FF5D7E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9C7625C4E27100FF5D7E /* LocationPickerViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		8AAC9CC225C5F1F900FF5D7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8AAC9C7B25C4E27300FF5D7E /* Assets.xcassets */,
+				8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AAC9CB325C5EE0C00FF5D7E /* Application.swift in Sources */,
 				8AAC9CAA25C5EB8B00FF5D7E /* LocationMapItem.swift in Sources */,
 				8AAC9C7725C4E27100FF5D7E /* LocationPickerViewController.swift in Sources */,
 				8AAC9CAD25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift in Sources */,

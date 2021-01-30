@@ -9,8 +9,6 @@ import UIKit
 import CoreLocation
 import MapKit
 
-private let radius: Double = 1000.0
-
 // MARK: - Protocol LocationPickerViewControllerDelegate
 
 protocol LocationPickerViewControllerDelegate: class {
@@ -118,8 +116,8 @@ extension LocationPickerViewController {
         
         let region = MKCoordinateRegion(
             center: mapItem.coordinate,
-            latitudinalMeters: radius,
-            longitudinalMeters: radius
+            latitudinalMeters: Application.radius,
+            longitudinalMeters: Application.radius
         )
         
         self.mapView.setRegion(region, animated: true)
@@ -152,7 +150,7 @@ extension LocationPickerViewController {
         self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
     
-    func makeRefresh() {
+    private func makeRefresh() {
         if self.searchController.isActive {
             self.searchController.searchBar.text = nil
             self.searchResultsController.dismiss(animated: true, completion: nil)
@@ -162,6 +160,14 @@ extension LocationPickerViewController {
         self.tableView.reloadData()
         self.locationManager.startUpdatingLocation()
     }
+    
+    private func showNavigationButtons() {
+        DispatchQueue.main.async {
+            self.navigationItem.leftBarButtonItem = self.cancelButtonItem
+            self.navigationItem.rightBarButtonItem = self.refreshlButtonItem
+        }
+    }
+    
 }
 
 // MARK: - Action Handlers
@@ -173,6 +179,7 @@ extension LocationPickerViewController {
     }
     
     @objc private func onPressRefreshButtonItem(_ sender: Any) {
+        self.makeRefresh()
         self.delegate?.locationPickerOnPressRefreshButtonItem(self)
     }
     
@@ -181,7 +188,11 @@ extension LocationPickerViewController {
 // MARK: - UISearchResultsUpdating
 
 extension LocationPickerViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = nil
+        
         guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines), searchText.count >= 2 else { return }
         
         if searchText.isEmpty {
@@ -221,13 +232,13 @@ extension LocationPickerViewController: UISearchResultsUpdating {
 extension LocationPickerViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        debugPrint(#function)
+        //
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        debugPrint(#function)
+        self.showNavigationButtons()
     }
-    
+        
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -267,8 +278,8 @@ extension LocationPickerViewController: CLLocationManagerDelegate {
             
             let region = MKCoordinateRegion(
                 center: currentLocation.coordinate,
-                latitudinalMeters: radius,
-                longitudinalMeters: radius
+                latitudinalMeters: Application.radius,
+                longitudinalMeters: Application.radius
             )
             
             self.mapView.setRegion(region, animated: true)
@@ -280,7 +291,12 @@ extension LocationPickerViewController: CLLocationManagerDelegate {
         let request = MKLocalSearch.Request()
         request.pointOfInterestFilter = .includingAll
         request.resultTypes = .pointOfInterest
-        request.region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: radius, longitudinalMeters: radius)
+        
+        request.region = MKCoordinateRegion(
+            center: currentLocation.coordinate,
+            latitudinalMeters: Application.radius,
+            longitudinalMeters: Application.radius
+        )
         
         if self.localSearch != nil {
             self.localSearch.cancel()
