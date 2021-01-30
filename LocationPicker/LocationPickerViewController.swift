@@ -16,6 +16,7 @@ private let radius: Double = 1000.0
 protocol LocationPickerViewControllerDelegate: class {
     func locationPickerOnPressCloseButtonItem(_ locationPicker: LocationPickerViewController)
     func locationPickerOnPressRefreshButtonItem(_ locationPicker: LocationPickerViewController)
+    func locationPicker(_ locationPicker: LocationPickerViewController, didFailWithError error: Error)
     func locationPicker(_ locationPicker: LocationPickerViewController, didSelect mapItem: LocationMapItem)
 }
 
@@ -234,7 +235,7 @@ extension LocationPickerViewController: UISearchBarDelegate {
 extension LocationPickerViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        debugPrint(#function, error)
+        self.delegate?.locationPicker(self, didFailWithError: error)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -256,7 +257,6 @@ extension LocationPickerViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation: CLLocation = locations.last else { return }
-        debugPrint(#function, currentLocation)
         
         if currentLocation.horizontalAccuracy < 100.0 {
             manager.stopUpdatingLocation()
