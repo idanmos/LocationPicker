@@ -17,6 +17,8 @@
 		8AAC9CA025C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */; };
 		8AAC9CA425C5919300FF5D7E /* LocationPicker+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */; };
 		8AAC9CA725C5EAB000FF5D7E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */; };
+		8AAC9CAA25C5EB8B00FF5D7E /* LocationMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9CA925C5EB8B00FF5D7E /* LocationMapItem.swift */; };
+		8AAC9CAD25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC9CAC25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerSearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationPicker+Extensions.swift"; sourceTree = "<group>"; };
 		8AAC9CA625C5EAB000FF5D7E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8AAC9CA925C5EB8B00FF5D7E /* LocationMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapItem.swift; sourceTree = "<group>"; };
+		8AAC9CAC25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 			children = (
 				8AAC9C7225C4E27100FF5D7E /* AppDelegate.swift */,
 				8AAC9C7425C4E27100FF5D7E /* SceneDelegate.swift */,
+				8AAC9CA925C5EB8B00FF5D7E /* LocationMapItem.swift */,
+				8AAC9CAC25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift */,
 				8AAC9C7625C4E27100FF5D7E /* LocationPickerViewController.swift */,
 				8AAC9C9F25C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift */,
 				8AAC9CA325C5919300FF5D7E /* LocationPicker+Extensions.swift */,
@@ -159,7 +165,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AAC9CAA25C5EB8B00FF5D7E /* LocationMapItem.swift in Sources */,
 				8AAC9C7725C4E27100FF5D7E /* LocationPickerViewController.swift in Sources */,
+				8AAC9CAD25C5EBB200FF5D7E /* LocationPickerTableViewCell.swift in Sources */,
 				8AAC9CA025C565F800FF5D7E /* LocationPickerSearchResultsTableViewController.swift in Sources */,
 				8AAC9C7325C4E27100FF5D7E /* AppDelegate.swift in Sources */,
 				8AAC9CA425C5919300FF5D7E /* LocationPicker+Extensions.swift in Sources */,

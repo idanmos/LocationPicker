@@ -11,65 +11,11 @@ import MapKit
 
 private let radius: Double = 1000.0
 
-class LocationMapItem {
-    
-    private let item: MKMapItem
-    init(_ mapItem: MKMapItem) {
-        self.item = mapItem
-    }
-    
-    let uuid = UUID()
-    
-    var name: String {
-        return self.item.name ?? ""
-    }
-    
-    var coordinate: CLLocationCoordinate2D {
-        return self.item.placemark.coordinate
-    }
-    
-    var title: String {
-        return "\(self.item.placemark.thoroughfare ?? "") \(self.item.placemark.subThoroughfare ?? ""), \(self.item.placemark.locality ?? "")"
-    }
-    
-}
-
-class LocationPickerTableViewCell: UITableViewCell {
-    
-    deinit {
-        debugPrint("Deallocating \(self)")
-        self.imageView?.image = nil
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.imageView?.image = UIImage(systemName: "location")
-        self.imageView?.layer.masksToBounds = true
-        self.imageView?.clipsToBounds = true
-        self.imageView?.backgroundColor = .systemGroupedBackground
-        self.imageView?.layer.cornerRadius = (self.imageView?.frame.size.height)!/2.0
-        self.imageView?.isHidden = false
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-}
-
 // MARK: - Protocol LocationPickerViewControllerDelegate
 
 protocol LocationPickerViewControllerDelegate: class {
+    func locationPickerOnPressCloseButtonItem(_ locationPicker: LocationPickerViewController)
+    func locationPickerOnPressRefreshButtonItem(_ locationPicker: LocationPickerViewController)
     func locationPicker(_ locationPicker: LocationPickerViewController, didSelect mapItem: LocationMapItem)
 }
 
@@ -77,8 +23,12 @@ protocol LocationPickerViewControllerDelegate: class {
 
 class LocationPickerViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var tableView: UITableView!
+    
+    // MARK: - Properties
     
     weak var delegate: LocationPickerViewControllerDelegate?
     
@@ -118,9 +68,14 @@ class LocationPickerViewController: UIViewController {
         return button
     }()
     
+    // MARK: - Lifecycle
+    
     deinit {
         debugPrint("Deallocating \(self)")
         self.dataSource.removeAll()
+        self.mapView.delegate = nil
+        self.locationManager.stopUpdatingLocation()
+        self.locationManager.delegate = nil
     }
     
     override func viewDidLoad() {
@@ -156,6 +111,7 @@ class LocationPickerViewController: UIViewController {
 
 
 extension LocationPickerViewController {
+    
     private func selectMapItem(_ mapItem: LocationMapItem, addToList: Bool = false) {
         self.selectedMapItem = mapItem
         
@@ -194,17 +150,8 @@ extension LocationPickerViewController {
         
         self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
-}
-
-// MARK: - Action Handlers
-
-extension LocationPickerViewController {
     
-    @objc private func onPressCloseButtonItem(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc private func onPressRefreshButtonItem(_ sender: Any) {
+    func makeRefresh() {
         if self.searchController.isActive {
             self.searchController.searchBar.text = nil
             self.searchResultsController.dismiss(animated: true, completion: nil)
@@ -213,6 +160,19 @@ extension LocationPickerViewController {
         self.dataSource.removeAll()
         self.tableView.reloadData()
         self.locationManager.startUpdatingLocation()
+    }
+}
+
+// MARK: - Action Handlers
+
+extension LocationPickerViewController {
+    
+    @objc private func onPressCloseButtonItem(_ sender: Any) {
+        self.delegate?.locationPickerOnPressCloseButtonItem(self)
+    }
+    
+    @objc private func onPressRefreshButtonItem(_ sender: Any) {
+        self.delegate?.locationPickerOnPressRefreshButtonItem(self)
     }
     
 }
